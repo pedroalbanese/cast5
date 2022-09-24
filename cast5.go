@@ -26,6 +26,16 @@ func NewCipher(key []byte) (c *Cipher, err error) {
 	return
 }
 
+func NewCAST(key []byte) (cipher.Block, error) {
+	if len(key) != KeySize {
+		return nil, errors.New("CAST5: keys must be 16 bytes")
+	}
+
+	c := new(Cipher)
+	c.keySchedule(key)
+	return c, nil
+}
+
 func (c *Cipher) BlockSize() int {
 	return BlockSize
 }
