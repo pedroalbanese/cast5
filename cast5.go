@@ -6,6 +6,7 @@
 // OpenPGP cipher.
 package cast5 
 
+import "crypto/cipher"
 import "errors"
 
 const BlockSize = 8
